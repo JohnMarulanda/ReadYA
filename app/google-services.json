@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "904915617760",
+    "project_id": "readya-kotlin",
+    "storage_bucket": "readya-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904915617760:android:903b4726b63bd71478cd85",
+        "android_client_info": {
+          "package_name": "com.example.readya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7Ee5ZeVHKKMTPZupKarYrzs5KS71rKvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
