@@ -12,6 +12,9 @@ class SplashActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
             startActivity(Intent(this, MainActivity::class.java))
-        Handler().postDelayed(Runnable {  }, 2000) //2 Segundos de delay
+        Handler().postDelayed(Runnable {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }, 2000) //2 Segundos de delay
     }
 }

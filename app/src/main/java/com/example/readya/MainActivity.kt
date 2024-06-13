@@ -1,6 +1,7 @@
 package com.example.readya
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,14 +22,13 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.loginBtn.setOnClickListener {
-
+            startActivity(Intent(this, LoginActivity::class.java))
 
         }
 
 
         binding.skipBtn.setOnClickListener {
-
-
+            startActivity(Intent(this, DashboardUserActivity::class.java))
         }
     }
 }

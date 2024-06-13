@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Readya</string>
+    <string name="welcome_message">Bienvenido a ReadYa</string>
+    <string name="login_message_btn">Inicia sesión</string>
+    <string name="continue_without_login">Continua sin iniciar sesión</string>
 </resources>

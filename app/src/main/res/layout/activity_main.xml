@@ -23,7 +23,7 @@
         android:layout_below="@+id/iconIv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Bienvenido a ReadYa"
+        android:text="@string/welcome_message"
         android:textColor="@color/white"
         android:textSize="16sp"/>
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/shape_button01"
-        android:text="Inicia Sesión"
+        android:text="@string/login_message_btn"
         android:layout_above="@+id/skipBtn"
         android:textColor="@color/white"/>
 
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/shape_button02"
-        android:text="Continua sin iniciar sesión"
+        android:text="@string/continue_without_login"
         android:textColor="@color/white"
         />
 
