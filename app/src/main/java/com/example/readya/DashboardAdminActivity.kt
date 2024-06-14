@@ -30,7 +30,7 @@ class DashboardAdminActivity : AppCompatActivity() {
             checkUser()
         }
 
-        binding.addCategoryBtn.setOnClickListener{
+        binding.addCategoryBtn.setOnClickListener {
             startActivity(Intent(this, CategoryAddActivity::class.java))
         }
     }
@@ -49,3 +49,4 @@ class DashboardAdminActivity : AppCompatActivity() {
             binding.subTitleTv.text = email
         }
     }
+}
