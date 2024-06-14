@@ -14,7 +14,7 @@ import java.util.HashMap
 
 class CategoryAddActivity : AppCompatActivity() {
 
-
+    private var category = ""
     //view binding
     private lateinit var binding: ActivityCategoryAddBinding
     //firebase auth
@@ -44,17 +44,14 @@ class CategoryAddActivity : AppCompatActivity() {
 
         // Manejar clic en el botón de enviar
         binding.submitBtn.setOnClickListener {
-            validateData()
+            category = binding.categoryEt.text.toString().trim()
+            validateData(category)
         }
 
     }
 
-    private var category = ""
-
-    private fun validateData(){
+    private fun validateData(category: String){
         //validate data
-
-        category = binding.categoryEt.text.toString().trim()
 
         if (category.isEmpty()){
             Toast.makeText(this, "Ingresa la categoría", Toast.LENGTH_SHORT).show()
@@ -88,6 +85,7 @@ class CategoryAddActivity : AppCompatActivity() {
                 Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
+                progressDialog.dismiss()
                 Toast.makeText(this, "No se ha podido añadir debido a ${e.message}", Toast.LENGTH_SHORT).show()
             }
 
