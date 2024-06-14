@@ -66,7 +66,7 @@ class CategoryAddActivity : AppCompatActivity() {
 
     private fun addCategoryFirebase() {
 
-        progessDialog.show()
+        progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
 

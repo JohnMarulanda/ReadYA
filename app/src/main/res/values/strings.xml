@@ -13,6 +13,11 @@
     <string name="confirmpassword_placeholder">Confirmar contraseña</string>
     <string name="dashboard_user">Dashboard del usuario</string>
     <string name="email_example">abc@example.com</string>
-    <string name="add_category_button">+ Añadir Categoria</string>
-    <string name="anadir_nuevo_libro">Añadir nuevo libro</string>
+    <string name="add_category_button">+ Añadir Categoría</string>
+    <string name="anadir_nuevo_libro">+ Añadir nuevo libro</string>
+    <string name="add_category_title">Añadir nueva categoría</string>
+    <string name="title_category">Nombre de la categoría</string>
+    <string name="add_category_button2">Agregar</string>
+    <string name="search_category">Buscar categoría</string>
+    <string name="category">Categoría</string>
 </resources>
