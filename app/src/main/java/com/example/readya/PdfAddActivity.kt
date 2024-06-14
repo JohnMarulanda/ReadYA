@@ -46,13 +46,7 @@ class PdfAddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPdfAddBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_pdf_add)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        setContentView(binding.root)
 
         // Init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -87,6 +81,7 @@ class PdfAddActivity : AppCompatActivity() {
     private var title = ""
     private var description = ""
     private var category = ""
+
     private fun validateData() {
         Log.d(TAG, "validateData: Validando información")
 
@@ -132,7 +127,7 @@ class PdfAddActivity : AppCompatActivity() {
             .addOnSuccessListener {taskSnapshot ->
                 Log.d(TAG, "uploadPdfToStorage: Obteniendo URL del archivo subido")
                 val uriTask:Task<Uri> = taskSnapshot.storage.downloadUrl
-                //while (!uriTask.isSuccessful);
+                while (!uriTask.isSuccessful);
                 val uploadedPdfUrl = "${uriTask.result}"
                 
                 uploadPdfInfoToDb(uploadedPdfUrl, timestamp)
@@ -170,6 +165,7 @@ class PdfAddActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Cargado con éxito", Toast.LENGTH_SHORT).show()
                 pdfUri = null
+                onBackPressed()
             }
             .addOnFailureListener{e ->
                 Log.d(TAG, "uploadPdfInfoToDb: Fallo al subir debido a ${e.message}")
@@ -226,6 +222,8 @@ class PdfAddActivity : AppCompatActivity() {
                 // get clicked item
                 selectedCategoryTitle = categoryArrayList[which].category
                 selectedCategoryId = categoryArrayList[which].id
+
+                binding.categoryTv.text = selectedCategoryTitle
 
                 Log.d(TAG, "categoryPickDialog: Id de categoría seleccionada: $selectedCategoryId")
                 Log.d(TAG, "categoryPickDialog: Título de categoría seleccionada: $selectedCategoryTitle")

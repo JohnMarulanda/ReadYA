@@ -83,6 +83,7 @@ class CategoryAddActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
+                onBackPressed()
             }
             .addOnFailureListener { e ->
                 progressDialog.dismiss()
