@@ -118,42 +118,32 @@
         app:drawableStartCompat="@drawable/ic_category_white" />
 
     <!--Attach-->
-    <RelativeLayout
-        android:id="@+id/uploadPdfBtn"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/attachPdfBtn"
+        android:duplicateParentState="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/categoryTv"
+        android:src="@drawable/ic_attach_white"
+        android:padding="15dp"
         android:background="@drawable/shape_button_filled"
-        android:clickable="true"
+        android:layout_below="@id/categoryTv"
+        android:text="@string/upload_pdf"
         android:layout_marginTop="12dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:focusable="true">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:duplicateParentState="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_attach_white"
-            android:padding="20dp"
-            android:background="@android:color/transparent"
-            android:text="@string/upload_pdf"
-            android:textAllCaps="false"
-            android:drawableStart="@drawable/ic_attach_teal"
-            android:textColor="@color/teal_green"/>
-    </RelativeLayout>
+        android:textAllCaps="false"
+        android:drawableStart="@drawable/ic_attach_teal"
+        android:textColor="@color/teal_green"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submitBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/uploadPdfBtn"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/attachPdfBtn"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:padding="25dp"
+        android:padding="20dp"
         android:text="@string/add"
         android:textAllCaps="false"
         android:background="@drawable/shape_button01"
