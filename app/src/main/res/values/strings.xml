@@ -12,6 +12,7 @@
     <string name="user_placeholder">Usuario</string>
     <string name="confirmpassword_placeholder">Confirmar contraseña</string>
     <string name="dashboard_user">Dashboard del usuario</string>
+    <string name="dahsboard_admin">Dashboard del admin</string>
     <string name="email_example">abc@example.com</string>
     <string name="add_category_button">+ Añadir Categoría</string>
     <string name="anadir_nuevo_libro">+ Añadir nuevo libro</string>
