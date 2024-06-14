@@ -28,8 +28,17 @@
     <string name="category_book">Categoría</string>
     <string name="size_book">Tamaño</string>
     <string name="date_book">dd/MM/yyyy</string>
+    <string name="date">Fecha</string>
+    <string name="size">Tamaño</string>
+    <string name="views">Vistas</string>
+    <string name="pages">Páginas</string>
     <string name="nothing">N/N</string>
+    <string name="nothing2">N/A</string>
     <string name="search_book">Buscar libro</string>
+    <string name="book_description">Descripción del libro</string>
+    <string name="read">Leer</string>
+    <string name="download">Descargar</string>
+    <string name="favorite">Añadir a favoritos</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
