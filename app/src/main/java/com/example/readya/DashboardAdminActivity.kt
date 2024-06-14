@@ -9,6 +9,9 @@ import androidx.core.view.WindowInsetsCompat
 class DashboardAdminActivity : AppCompatActivity() {
 
     //En el video 03 - minuto 4:20
+
+    //En el video 04 - Minuto 32:40  hasta minuto 39
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
