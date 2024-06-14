@@ -28,7 +28,7 @@
         android:textSize="16sp"/>
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,11 +36,12 @@
         android:background="@drawable/shape_button01"
         android:text="@string/login_message_btn"
         android:layout_above="@+id/skipBtn"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
 
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/skipBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
         android:background="@drawable/shape_button02"
         android:text="@string/continue_without_login"
         android:textColor="@color/white"
+        android:textAllCaps="false"
         />
 
 
