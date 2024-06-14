@@ -5,4 +5,6 @@
     <color name="dark_blue">#264653</color>
     <color name="teal_green">#2A9D8F</color>
     <color name="burnt_orange">#E76F51</color>
+    <color name="gray01">#c5c5c5</color>
+    <color name="gray02">#777777</color>
 </resources>

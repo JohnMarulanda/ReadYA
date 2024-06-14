@@ -3,4 +3,7 @@
     <string name="welcome_message">Bienvenido a ReadYa</string>
     <string name="login_message_btn">Inicia sesión</string>
     <string name="continue_without_login">Continua sin iniciar sesión</string>
+    <string name="email_placeholder">Correo electrónico</string>
+    <string name="password_placeholder">Contraseña</string>
+    <string name="forgotpassword_placeholder">¿No recuerdas tu contraseña?</string>
 </resources>
