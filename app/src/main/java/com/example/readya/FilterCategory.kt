@@ -19,7 +19,7 @@ class FilterCategory: Filter  {
         val results = FilterResults()
 
         // Si hay un texto de búsqueda
-        if (!constraint.isNullOrEmpty()) {
+        if (constraint != null && constraint.isNotEmpty()) {
             constraint = constraint.toString().uppercase()
             val filteredModels:ArrayList<ModelCategory> = ArrayList()
 

@@ -32,7 +32,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderCategory {
         // Inflar el layout usando ViewBinding
-        val binding = RowCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = RowCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HolderCategory(binding.root)
     }
 
@@ -44,7 +44,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
         // Obtener datos específicos del modelo
         val id = model.id
         val category = model.category
-        val vid = model.uid
+        val uid = model.uid
         val timestamp = model.timestamp
 
         // Establecer los datos en las vistas del ViewHolder
@@ -53,7 +53,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
         // Manejar clic en el botón de eliminar categoría
         holder.deleteBtn.setOnClickListener {
             // Mostrar un diálogo de confirmación antes de eliminar
-            val builder = AlertDialog.Builder(holder.itemView.context)
+            val builder = AlertDialog.Builder(context)
             builder.setTitle("Borrar")
                 .setMessage("¿Estas seguro que deseas borrar esta categoría?")
                 .setPositiveButton("Confirmar") { a, d ->
@@ -80,11 +80,11 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
             .removeValue()
             .addOnSuccessListener {
                 // Éxito al eliminar la categoría
-                Toast.makeText(holder.itemView.context, "Categoria borrada correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Categoria borrada correctamente", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
                 // Error al eliminar la categoría
-                Toast.makeText(holder.itemView.context, "Fallo al eliminar la categoria: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Fallo al eliminar la categoria: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

@@ -21,8 +21,10 @@ class DashboardAdminActivity : AppCompatActivity() {
     //firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private lateinit var categoryArrayList: ArrayList<ModelCategory>
 
+    //arraylist to hold categories
+    private lateinit var categoryArrayList: ArrayList<ModelCategory>
+    //adapter
     private lateinit var adapterCategory: AdapterCategory
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,34 +37,30 @@ class DashboardAdminActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
         loadCategories()
-        //handle click, logout
-        binding.logoutBtn.setOnClickListener {
-            firebaseAuth.signOut()
-            checkUser()
-        }
 
         //search
-        binding.searchEt.addTextChangedListener(object : TextWatcher {
-
+        binding.searchEt.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("Not yet implemented")
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 //called as and when user type anything
-
                 try {
                     adapterCategory.filter.filter(s)
-                } catch (e: Exception) {
+                }
+                catch (e: Exception) {
 
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
-                TODO("Not yet implemented")
             }
-
         })
+
+        //handle click, logout
+        binding.logoutBtn.setOnClickListener {
+            firebaseAuth.signOut()
+            checkUser()
+        }
 
         //handle click, start add category page
         binding.addCategoryBtn.setOnClickListener {
@@ -86,30 +84,30 @@ class DashboardAdminActivity : AppCompatActivity() {
     }
 
     private fun loadCategories() {
-        // Inicializar el ArrayList
+        //init arraylist
         categoryArrayList = ArrayList()
 
-        // Obtener todas las categorías desde Firebase Database
+        //get all categories from firebase database... Firebase 08 > Categories
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.addValueEventListener(object : ValueEventListener {
+        ref.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                // Limpiar la lista antes de agregar datos nuevos
+                //clear list before starting adding data into it
                 categoryArrayList.clear()
-
-                // Iterar a través de los hijos (categorías) en el snapshot
                 for (ds in snapshot.children) {
-                    // Obtener datos y convertir a modelo (ModelCategory)
+                    //get data as model
                     val model = ds.getValue(ModelCategory::class.java)
-                        // Agregar el modelo a la lista
-                        categoryArrayList.add(model!!)
-                    }
-                // Inicializar o actualizar el adaptador con los datos cargados
+
+                    //add to arraylist
+                    categoryArrayList.add(model!!)
+                }
+                //setup adapter
                 adapterCategory = AdapterCategory(this@DashboardAdminActivity, categoryArrayList)
+                //set adapater to recyclerview
                 binding.categoriesRv.adapter = adapterCategory
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                TODO("Not yet implemented")
             }
         })
     }
