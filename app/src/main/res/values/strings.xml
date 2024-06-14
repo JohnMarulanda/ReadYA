@@ -21,4 +21,9 @@
     <string name="add_category_button2">Agregar</string>
     <string name="search_category">Buscar categoría</string>
     <string name="category">Categoría</string>
+    <string name="add_book">Añadir nuevo libro</string>
+    <string name="book_title">Título del libro</string>
+    <string name="book_description">Descripción del libro</string>
+    <string name="upload_pdf">Subir PDF</string>
+    <string name="add">Añadir</string>
 </resources>

@@ -17,6 +17,9 @@
             android:name=".CategoryAddActivity"
             android:exported="false" />
         <activity
+            android:name=".PdfAddActivity"
+            android:exported="false" />
+        <activity
             android:name=".DashboardAdminActivity"
             android:exported="false" />
         <activity
