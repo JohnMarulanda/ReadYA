@@ -35,7 +35,6 @@ class DashboardAdminActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
         loadCategories()
-
         //handle click, logout
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
@@ -43,7 +42,7 @@ class DashboardAdminActivity : AppCompatActivity() {
         }
 
         //search
-        binding.searchEt.addTextChangedListener(object: TextWatcher{
+        binding.searchEt.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 TODO("Not yet implemented")
@@ -54,8 +53,7 @@ class DashboardAdminActivity : AppCompatActivity() {
 
                 try {
                     adapterCategory.filter.filter(s)
-                }
-                catch (e: Exception){
+                } catch (e: Exception) {
 
                 }
             }
@@ -70,6 +68,21 @@ class DashboardAdminActivity : AppCompatActivity() {
         //handle click, start add category page
         binding.addCategoryBtn.setOnClickListener {
             startActivity(Intent(this, CategoryAddActivity::class.java))
+        }
+    }
+
+    private fun checkUser() {
+        //get current user
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser == null) {
+            //not logged in, goto main screen
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        } else {
+            //logged in, get and show user info
+            val email = firebaseUser.email
+            //set to text view of toolbar
+            binding.subTitleTv.text = email
         }
     }
 
@@ -102,19 +115,4 @@ class DashboardAdminActivity : AppCompatActivity() {
         })
     }
 
-
-    private fun checkUser() {
-        //get current user
-        val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser == null) {
-            //not logged in, goto main screen
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        } else {
-            //logged in, get and show user info
-            val email = firebaseUser.email
-            //set to text view of toolbar
-            binding.subTitleTv.text = email
-        }
-    }
 }
