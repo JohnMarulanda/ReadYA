@@ -46,5 +46,19 @@
 
     </RelativeLayout>
 
+    <!-- Tabs: Show Book Categories -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_margin="5dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabBackroung="@drawable/tab_selector"
+        app:tabIndicatorHeight="0dp"
+        android:layout_below="@id/toolbarRL"
+        app:tabMode="scrollable"/>
+
+
 
 </RelativeLayout>

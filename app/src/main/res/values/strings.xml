@@ -21,4 +21,15 @@
     <string name="add_category_button2">Agregar</string>
     <string name="search_category">Buscar categoría</string>
     <string name="category">Categoría</string>
+    <string name="details_title">Detalles del libro</string>
+    <string name="read_book">Leer libro</string>
+    <string name="title_book">Título del libro</string>
+    <string name="description_book">Descripción del libro</string>
+    <string name="category_book">Categoría</string>
+    <string name="size_book">Tamaño</string>
+    <string name="date_book">dd/MM/yyyy</string>
+    <string name="nothing">N/N</string>
+    <string name="search_book">Buscar libro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
