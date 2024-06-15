@@ -15,15 +15,19 @@
     <string name="dahsboard_admin">Dashboard del admin</string>
     <string name="email_example">abc@example.com</string>
     <string name="add_category_button">+ Añadir Categoría</string>
-    <string name="anadir_nuevo_libro">+ Añadir nuevo libro</string>
+    <string name="add_new_book">+ Añadir nuevo libro</string>
     <string name="add_category_title">Añadir nueva categoría</string>
     <string name="title_category">Nombre de la categoría</string>
     <string name="add_category_button2">Agregar</string>
     <string name="search_category">Buscar categoría</string>
     <string name="category">Categoría</string>
-    <string name="add_book">Añadir nuevo libro</string>
     <string name="book_title">Título del libro</string>
     <string name="book_description">Descripción del libro</string>
     <string name="upload_pdf">Subir PDF</string>
+    <string name="books">Libros</string>
+    <string name="search">Buscar</string>
     <string name="add">Añadir</string>
+    <string name="book_size">13MB</string>
+    <string name="book_date">dd/MM/yyyy</string>
+    <string name="add_book">Añadir nuevo libro</string>
 </resources>
