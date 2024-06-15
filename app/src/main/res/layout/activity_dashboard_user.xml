@@ -69,6 +69,13 @@
         android:layout_below="@id/toolbarRL"
         app:tabMode="scrollable"/>
 
+    <!-- View Pager: Show categorized books in fragment-->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabLayout"/>
+
 
 
 </RelativeLayout>
