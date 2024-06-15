@@ -15,7 +15,7 @@
     <string name="dahsboard_admin">Dashboard del admin</string>
     <string name="email_example">abc@example.com</string>
     <string name="add_category_button">+ Añadir Categoría</string>
-    <string name="add_new_book">+ Añadir nuevo libro</string>
+    <string name="anadir_nuevo_libro">+ Añadir nuevo libro</string>
     <string name="add_category_title">Añadir nueva categoría</string>
     <string name="title_category">Nombre de la categoría</string>
     <string name="add_category_button2">Agregar</string>
@@ -30,4 +30,23 @@
     <string name="book_size">13MB</string>
     <string name="book_date">dd/MM/yyyy</string>
     <string name="add_book">Añadir nuevo libro</string>
+    <string name="details_title">Detalles del libro</string>
+    <string name="read_book">Leer libro</string>
+    <string name="title_book">Título del libro</string>
+    <string name="description_book">Descripción del libro</string>
+    <string name="category_book">Categoría</string>
+    <string name="size_book">Tamaño</string>
+    <string name="date_book">dd/MM/yyyy</string>
+    <string name="date">Fecha</string>
+    <string name="size">Tamaño</string>
+    <string name="views">Vistas</string>
+    <string name="pages">Páginas</string>
+    <string name="nothing">N/N</string>
+    <string name="nothing2">N/A</string>
+    <string name="search_book">Buscar libro</string>
+    <string name="read">Leer</string>
+    <string name="download">Descargar</string>
+    <string name="favorite">Añadir a favoritos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
