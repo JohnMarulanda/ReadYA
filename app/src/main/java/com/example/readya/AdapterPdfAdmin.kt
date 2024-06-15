@@ -1,6 +1,8 @@
 package com.example.readya
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,6 +65,38 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         MyApplication.loadPdfFromUrlSinglePage(pdfUrl, title, holder.pdfView, holder.progressBar, null)
 
         MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
+
+        holder.moreBtn.setOnClickListener {
+            moreOptionsDialog(model, holder)
+        }
+
+    }
+
+    private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+        //get id, url,title of book
+        val bookId = model.id
+        val bookUrl = model.url
+        val bookTitle = model.title
+
+        //options to show in dialog
+        val options = arrayOf("Editar", "Borrar")
+
+        //alert dialog
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Elige una opción")
+            .setItems(options) {dialog, position ->
+                if(position==0) {
+                    //Edit is clicked
+                    val intent = Intent(context, PdfEditActivity::class.java)
+                    intent.putExtra("bookId", bookId)
+                    context.startActivity(intent)
+                }
+                else if (position == 1) {
+                    //Delete is clicked
+                    MyApplication.deleteBook(context, bookId, bookUrl, bookTitle)
+                }
+            }
+            .show()
     }
 
 
