@@ -35,6 +35,11 @@ class PdfListAdminActivity : AppCompatActivity() {
         binding = ActivityPdfListAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Handle click, go back
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
 
         val intent = intent
         categoryId = intent.getStringExtra("categoryId")!!
