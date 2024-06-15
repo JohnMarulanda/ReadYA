@@ -28,8 +28,12 @@ class MyApplication:Application() {
             return DateFormat.format("dd/MM/yyyy", cal).toString()
         }
 
-        fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView) {
+        fun loadPdfSize(pdfUrl: String?, pdfTitle: String, sizeTv: TextView) {
             val TAG = "PDF_SIZE_TAG"
+            if (pdfUrl.isNullOrEmpty()) {
+                Log.e(TAG, "URL is null or empty")
+                return
+            }
 
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
             ref.metadata
@@ -38,30 +42,33 @@ class MyApplication:Application() {
                     val bytes = storageMetaData.sizeBytes.toDouble()
                     Log.d(TAG, "loadPdfSize: Size bytes $bytes")
 
-
                     // Convert bytes to KB/MB
-                    val kb = bytes/1024
-                    val mb = kb/1024
+                    val kb = bytes / 1024
+                    val mb = kb / 1024
                     if (mb >= 1) {
-                        sizeTv.text = "${String.format(" % .2f, mb")} MB"
-                    }
-                    else if (kb >= 1) {
-                        sizeTv.text = "${String.format("%.2f, kb")} KB"
-                    }
-                    else {
-                        sizeTv.text = "${String.format("%.2f, bytes")} bytes"
+                        sizeTv.text = String.format("%.2f MB", mb)
+                    } else if (kb >= 1) {
+                        sizeTv.text = String.format("%.2f KB", kb)
+                    } else {
+                        sizeTv.text = String.format("%.2f bytes", bytes)
                     }
                 }
                 .addOnFailureListener {e ->
                     Log.d(TAG, "loadPdfSize: ${e.message}")
                 }
         }
-        fun loadPdfFromUrlSinglePage(pdfUrl: String, pdfTitle: String, pdfView: PDFView, progressBar: ProgressBar, pagesTv: TextView?) {
+
+        fun loadPdfFromUrlSinglePage(pdfUrl: String?, pdfTitle: String, pdfView: PDFView, progressBar: ProgressBar, pagesTv: TextView?) {
             val TAG = "PDF_THUMBNAIL_TAG"
+            if (pdfUrl.isNullOrEmpty()) {
+                Log.e(TAG, "URL is null or empty")
+                return
+            }
+
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
             ref.getBytes(Constants.MAX_BYTES_PDF)
                 .addOnSuccessListener {bytes ->
-                    Log.d(TAG, "loadPdfSize: Size bytes $bytes")
+                    Log.d(TAG, "loadPdfFromUrlSinglePage: Size bytes $bytes")
 
                     // Set to pdfview
                     pdfView.fromBytes(bytes)
@@ -78,16 +85,15 @@ class MyApplication:Application() {
                             Log.d(TAG, "loadPdfFromUrlSinglePage: ${t.message}")
                         }
                         .onLoad{nbPages ->
-                            Log.d(TAG, "loadPdfFromUrlSinglePage: Paginas: $nbPages")
+                            Log.d(TAG, "loadPdfFromUrlSinglePage: Pages: $nbPages")
                             progressBar.visibility = View.INVISIBLE
-                            if (pagesTv != null) {
-                                pagesTv.text = "$nbPages"
-                            }
+                            pagesTv?.text = "$nbPages"
                         }
                         .load()
                 }
                 .addOnFailureListener {e ->
-                    Log.d(TAG, "loadPdfSize: ${e.message}")
+                    Log.e(TAG, "Failed to load PDF", e)
+                    Log.d(TAG, "loadPdfFromUrlSinglePage: ${e.message}")
                 }
         }
 
@@ -98,14 +104,14 @@ class MyApplication:Application() {
                 .addListenerForSingleValueEvent(object: ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         //Get Category
-                        val category= "${snapshot.child(" category ").value}"
+                        val category = "${snapshot.child("category").value}"
 
                         //set category
                         categoryTv.text = category
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-
+                        Log.e("MyApplication", "Error loading category", error.toException())
                     }
                 })
         }

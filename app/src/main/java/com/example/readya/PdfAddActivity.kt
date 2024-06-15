@@ -153,6 +153,7 @@ class PdfAddActivity : AppCompatActivity() {
         hashMap["title"] = title
         hashMap["description"] = description
         hashMap["categoryId"] = selectedCategoryId
+        hashMap["url"] = uploadedPdfUrl
         hashMap["timestamp"] = timestamp
         hashMap["viewsCount"] = 0
         hashMap["downloadsCount"] = 0

@@ -40,8 +40,8 @@
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/pdfRl"
-            android:layout_toStartOf="@+id/moreBtn"
+            android:layout_toEndOf="@id/pdfRl"
+            android:layout_toStartOf="@id/moreBtn"
             android:maxLines="1"
             android:text="@string/book_title"
             android:ellipsize="end"/>
@@ -61,7 +61,7 @@
 
         <!--Category-->
         <TextView
-            android:id="@id/categoryTv"
+            android:id="@+id/categoryTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,6 +83,7 @@
         <!--Date-->
         <TextView
             android:id="@+id/dateTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
