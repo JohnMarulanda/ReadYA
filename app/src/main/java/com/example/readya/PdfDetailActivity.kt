@@ -26,6 +26,9 @@ class PdfDetailActivity : AppCompatActivity() {
         //get  book id from intent
         bookId = intent.getStringExtra("bookId")!!
 
+
+        //increment book view count, whenever this page starts
+        MyApplication.incrementBookViewCount(bookId)
         loadBookDetails()
 
         //hanlde backbutton click, goback
@@ -57,6 +60,14 @@ class PdfDetailActivity : AppCompatActivity() {
                     MyApplication.loadCategory(categoryId, binding.categoryTv)
                     //load pdf thumbnail, pages count
                     MyApplication.loadPdfFromUrlSinglePage("$url", "$title", binding.pdfView, binding.progressBar, binding.pagesTv)
+                    //load pdf size
+                    MyApplication.loadPdfSize("$url", "$title", binding.sizeTv)
+
+                    //set data
+                    binding.titleTv.text = title
+                    binding.descriptionTv.text = description
+                    binding.viewsTv.text = viewsCount
+                    binding.dateTv.text = date
                 }
 
                 override fun onCancelled(error: DatabaseError) {

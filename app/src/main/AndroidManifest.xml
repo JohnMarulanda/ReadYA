@@ -23,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".PdfDetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CategoryAddActivity"
             android:exported="true" />
