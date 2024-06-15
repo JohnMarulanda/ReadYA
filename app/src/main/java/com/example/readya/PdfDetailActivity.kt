@@ -1,5 +1,6 @@
 package com.example.readya
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +35,13 @@ class PdfDetailActivity : AppCompatActivity() {
         //hanlde backbutton click, goback
         binding.backBtn.setOnClickListener {
             onBackPressed()
+        }
+
+        //handle click, open pdf view activity
+        binding.readBookBtn.setOnClickListener{
+            val intent = Intent(this, PdfViewActivity::class.java)
+            intent.putExtra("bookId", bookId)
+            startActivity(intent)
         }
     }
 
