@@ -2,6 +2,7 @@ package com.example.readya
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Filterable{
 
     private val context: Context
-    public var categoryArrayList: ArrayList<ModelCategory>
+    var categoryArrayList: ArrayList<ModelCategory>
     private var filterList: ArrayList<ModelCategory>
 
     private var filter: FilterCategory? = null
@@ -65,6 +66,14 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
                     a.dismiss()
                 }
                 .show()
+        }
+
+        //Al presionar, inicia lista de pdf
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, PdfListAdminActivity::class.java)
+            intent.putExtra("categoryId", id)
+            intent.putExtra("category", category)
+            context.startActivity(intent)
         }
     }
 

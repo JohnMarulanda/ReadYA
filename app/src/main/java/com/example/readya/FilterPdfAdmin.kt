@@ -34,11 +34,11 @@ class FilterPdfAdmin: Filter {
         return results
     }
 
-    override fun publishResults(constraint: CharSequence, results: FilterResults?) {
+    override fun publishResults(constraint: CharSequence, results: FilterResults) {
         // Apply filter changes
-        adapterPdfAdmin.pdfArrayList = results!!.values as ArrayList<ModelPdf>
+        adapterPdfAdmin.pdfArrayList = results.values as ArrayList<ModelPdf>
 
         // Notify changes
-
+        adapterPdfAdmin.notifyDataSetChanged()
     }
 }
