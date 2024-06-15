@@ -1,11 +1,14 @@
 package com.example.readya
 
 import android.app.Application
+import android.app.ProgressDialog
+import android.content.Context
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -114,6 +117,40 @@ class MyApplication:Application() {
                         Log.e("MyApplication", "Error loading category", error.toException())
                     }
                 })
+        }
+
+        fun deleteBook(context: Context, bookId: String, bookUrl: String, bookTitle: String){
+            val TAG = "DELETE_BOOK_TAG"
+
+            Log.d(TAG, "deleteBook: Borrar...")
+
+            //progress dialog
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle("Por favor espera")
+            progressDialog.setMessage("Borrando $bookTitle")
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+
+            Log.d(TAG, "deleteBook: Borrando del bd...")
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
+            storageReference.delete()
+                .addOnSuccessListener {
+                    Log.d(TAG, "deleteBook: Borrado del almacenamiento")
+                    Log.d(TAG, "deleteBook: Borrado de la base de datos ahora...")
+
+                    val ref = FirebaseDatabase.getInstance().getReference("Books")
+                    ref.child(bookId)
+                        .removeValue()
+                        .addOnSuccessListener { 
+                            progressDialog.dismiss()
+                            Toast.makeText(context, "Borrado exitosamente...", Toast.LENGTH_SHORT).show()
+                            Log.d(TAG, "deleteBook: Borrado de la bd también...")
+                        }
+                }
+                .addOnFailureListener{e->
+                    Log.d(TAG, "deleteBook: Falló en borrar del almacenamiento de ${e.message}")
+                    Toast.makeText(context, "Falló en borrar del almacenamiento de ${e.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }
