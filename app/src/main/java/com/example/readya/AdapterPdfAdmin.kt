@@ -70,6 +70,14 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
             moreOptionsDialog(model, holder)
         }
 
+        //handle item click, open PdfDetailActivity activity, lets create it first
+        holder.itemView.setOnClickListener {
+            //intent with book id
+            val intent = Intent(context, PdfDetailActivity::class.java)
+            intent.putExtra("bookId", pdfId) //will be used to load book details
+            context.startActivity(intent)
+        }
+
     }
 
     private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
