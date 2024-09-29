@@ -1,5 +1,3 @@
----
-
 # Readya Your Ultimate Reading Companion
 
 **Readya** is a mobile application designed to provide avid readers with a seamless and dynamic way to manage their downloaded e-books in various formats (PDF, EPUB, MOBI, AZW). The app includes reading habit support features, allowing users to set goals, receive reading reminders, and track their progress—all in one convenient place.
@@ -77,5 +75,3 @@ This project was developed as part of the **Mobile Applications** course to lear
 3. Set up **Firebase Authentication** and **Realtime Database** with your own credentials.
 
 4. Run the project on an Android device or emulator.
-
----
