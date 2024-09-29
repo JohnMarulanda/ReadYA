@@ -1,6 +1,6 @@
 ---
 
-# 📚 Readya: Your Ultimate Reading Companion
+# 📚 Readya Your Ultimate Reading Companion
 
 **Readya** is a mobile application designed to provide avid readers with a seamless and dynamic way to manage their downloaded e-books in various formats (PDF, EPUB, MOBI, AZW). The app includes reading habit support features, allowing users to set goals, receive reading reminders, and track their progress—all in one convenient place.
 
